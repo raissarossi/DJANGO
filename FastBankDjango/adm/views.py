@@ -122,6 +122,30 @@ class ContaDetail(RetrieveUpdateDestroyAPIView):
 class MovimentacaoList(ListCreateAPIView):
     queryset = Movimentacao.objects.all()
     serializer_class = MovimentacaoSerializer
+       
+#     def create(...):
+#         #para uma transferencia existir oq precisa? 
+#         #valor, destino, tipo
+#         #valor = tenho que verificar se o remetente possui saldo suficiente
+#         #quem é remetente? o remetente é o usuário que fez a requisição - obter isso via token AccessToken(token) ele retornará o user_id
+#         #com o user_id vc pode buscar na tabela Conta aquele usuário e o saldo dele
+#         #conta = Conta.objects.filter(cliente=user_id)
+        
+#         #if conta.saldo > valor_transferencia:
+#             #TODO - subtrair o saldo da conta remetente
+#             conta.saldo -= valor_transferencia
+#             conta.save()
+            
+            
+#          conta_destino = Conta.objects.filter(cliente=destino)
+#          conta_destino = queryset.filter(usuario=destino)
+#             if conta_destino is not None:
+#                 conta_destino.saldo += valor_transferencia
+#                 conta_destino.save()
+           
+#         return #padrão do create
+        
+    
 class MovimentacaoDetail(RetrieveUpdateDestroyAPIView):
     queryset = Movimentacao.objects.all()
     serializer_class = MovimentacaoSerializer
